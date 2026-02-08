@@ -1,5 +1,6 @@
-<h1>todo-list works!</h1>
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
+<h1>todo list</h1>
+@for (item of datalist; track item.id) {
+    <!-- <app-todo-item bgColor="pink"></app-todo-item> -->
+     <!-- <app-todo-item [bgColor]="item.title"></app-todo-item> -->
+      <app-todo-item [data]="item"></app-todo-item>
+}
