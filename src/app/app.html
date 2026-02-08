@@ -1,1 +1,4 @@
-<app-todo-list></app-todo-list>
+<h1>all todos</h1>
+<app-todo-list [datalist]="allTodo"></app-todo-list>
+<h1>completed todos</h1>
+<app-todo-list [datalist]="getCompleted()"></app-todo-list>

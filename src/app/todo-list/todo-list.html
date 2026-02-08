@@ -1,5 +1,4 @@
-<h1>todo list</h1>
-@for (item of datalist; track item.id) {
+@for (item of datalist(); track item.id) {
     <!-- <app-todo-item bgColor="pink"></app-todo-item> -->
      <!-- <app-todo-item [bgColor]="item.title"></app-todo-item> -->
       <app-todo-item [data]="item"></app-todo-item>
