@@ -1,4 +1,12 @@
-<h1>all todos</h1>
+<!-- <h1>all todos</h1>
 <app-todo-list [datalist]="allTodo"></app-todo-list>
 <h1>completed todos</h1>
-<app-todo-list [datalist]="getCompleted()"></app-todo-list>
+<app-todo-list [datalist]="getCompleted()"></app-todo-list> -->
+
+<form>
+    <!-- <app-special-input [value]="x" (valueChange)="x = $event"></app-special-input> -->
+    <!-- [(value)] - מאחרוי הקלעים מבצע שליחה של אינפוט ואאוטפוט כמו השורה שלעיל -->
+    <app-special-input [(value)]="x" name="username"></app-special-input>
+    <app-special-input [(value)]="pass" name="password"></app-special-input>
+</form>
+<h1>{{x}} (from parent)</h1>
