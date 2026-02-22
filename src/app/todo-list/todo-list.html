@@ -1,5 +1,9 @@
-@for (item of datalist(); track item.id) {
-    <!-- <app-todo-item bgColor="pink"></app-todo-item> -->
-     <!-- <app-todo-item [bgColor]="item.title"></app-todo-item> -->
-      <app-todo-item [data]="item"></app-todo-item>
+<app-todo-form (onSave)="addOneTodo($event)"></app-todo-form>
+@for (item of realList; track item.id) {
+  <!-- <app-todo-item bgColor="pink"></app-todo-item> -->
+  <!-- <app-todo-item [bgColor]="item.title"></app-todo-item> -->
+
+  <!-- 4. באבא - מקשרים את הפונקציה של מחיקה מהרשימה לאירוע שהגדרנו בבן -->
+  <!--    $event הנתון שנשלח מהבן נכנס לתוך משתנה שמור בשם -->
+  <app-todo-item [data]="item" (onRemoveItem)="removeOneTodo($event)"></app-todo-item>
 }

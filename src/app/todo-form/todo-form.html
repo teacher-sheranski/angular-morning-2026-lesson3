@@ -1,0 +1,6 @@
+<h2>Add Todo</h2>
+<form>
+    <input type="text" name="title" placeholder="title" [(ngModel)]="newTodo.title" >
+    <input type="date" name="date" [(ngModel)]="newTodo.date">
+    <button (click)="addTodo()">Add</button>
+</form>

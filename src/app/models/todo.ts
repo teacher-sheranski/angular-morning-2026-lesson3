@@ -7,15 +7,26 @@
 */
 
 export class Todo {
-    id: string;
-    title: string;
-    date: Date;
-    completed: boolean;
+  id: string;
+  title: string;
+  completed: boolean;
 
-    constructor(title: string, date: Date | string | number, completed: boolean = false) {
-        this.id = crypto.randomUUID();
-        this.title = title;
-        this.date = new Date(date);
-        this.completed = completed;
-    }
+  private _date: Date = new Date();
+  public get date(): string {
+    return this.formatDateToYYYYMMDD_UTC(this._date);
+  }
+  public set date(val: Date | string) {
+    this._date = new Date(val);
+  }
+
+  constructor(title: string, date: Date | string, completed: boolean = false) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.date = date; // set date
+    this.completed = completed;
+  }
+
+  private formatDateToYYYYMMDD_UTC(date: Date) {
+    return date.toISOString().split('T')[0];
+  }
 }
