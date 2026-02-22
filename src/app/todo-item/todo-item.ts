@@ -6,9 +6,9 @@ import { Todo } from '../models/todo';
   imports: [],
   template: `
     <div [style.background]="bgColor()" class="card">
-      <h2>{{data().title}}</h2>
-      <p>date: {{data().date}}</p>
-      <p>completed? {{data().completed}}</p>
+      <h2>{{ data().title }}</h2>
+      <p>date: {{ data().date }}</p>
+      <p>completed? {{ data().completed }}</p>
       <button (click)="removeMe()">remove me</button>
     </div>
   `,
@@ -18,7 +18,10 @@ export class TodoItem {
   // input - פונקציה שמורה שמקבלת טיפוס בסוגריים משולשים
   // משמשת כדי שנוכל לקבל משתנים מקומפוננטת אב
   // כמו פרופס של ריאקט
-  bgColor = input<string>();
+  bgColor = input('lightblue', {
+    alias: 'background', // bgColor כך יקראו לערך ששולחים מהאבא במקום
+    transform: (val: string) => val.toLowerCase() // שינוי הערך שמתקבל מהאבא לפני שנכנס לאינפוט
+  });
 
   //  input.required - זה פרופ שחובה לשלוח
   data = input.required<Todo>();

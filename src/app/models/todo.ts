@@ -7,9 +7,10 @@
 */
 
 export class Todo {
+  // public ברירת מחדל הכל
   id: string;
-  title: string;
-  completed: boolean;
+  //   title: string;
+  //   completed: boolean;
 
   private _date: Date = new Date();
   public get date(): string {
@@ -19,11 +20,15 @@ export class Todo {
     this._date = new Date(val);
   }
 
-  constructor(title: string, date: Date | string, completed: boolean = false) {
+  constructor(
+    public title: string, // הגדרה כתכונה פבליק כולל השמה
+    date: Date | string,
+    public completed: boolean = false, // הגדרה כתכונה פבליק כולל השמה, ערך דיפולטיבי
+  ) {
     this.id = crypto.randomUUID();
-    this.title = title;
+    // this.title = title;
     this.date = date; // set date
-    this.completed = completed;
+    // this.completed = completed;
   }
 
   private formatDateToYYYYMMDD_UTC(date: Date) {
